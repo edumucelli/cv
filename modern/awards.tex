@@ -1,0 +1,38 @@
+\ifthenelse{\boolean{en}} {\section{Awards}\label{sec:awards}}{\section{Prêmios}\label{sec:awards}}
+
+% ifthenelse inside the third field bugs cvmodern as "Argument of \boolean has an extra }"
+\cventry{\may 2013}{Brazilian Ministry of Justice}{Honorary mention}{}{}
+	{\ifthenelse{\boolean{en}}
+		{Open Data Applications Contest. Lead developer of a Ruby on Rails application called Proconfie. Refer to Section \hyperref[sec:web_app]{Web Applications} for more details about this application.}
+		{1\textsuperscript{o} Concurso de Aplicativos do Ministério da Justiça. Desenvolvedor do aplicativo Proconfie. Veja a seção \hyperref[sec:web_app]{Aplicativos Web} para mais detalhes sobre este aplicativo.}}
+
+\cventry{\july 2008}{\puc}{Silver Medal}{}{}
+	{\ifthenelse{\boolean{en}}
+		        {Second best overall score during the bachelor.}
+		        {Segunda melhor nota total durante todo a graduação.}}
+
+\cventry{\may 2007}{\puc}{Honorary mention}{}{}
+	{\ifthenelse{\boolean{en}}
+		{For the work \emph{"Game Theory in Decision Making in Wireless Sensor Networks"} presented in the 15\textsuperscript{th} Sciences Seminar.}
+		{Para o trabalho \emph{"Teoria dos Jogos na Tomada de Decisão em Redes de Sensores Sem Fio"} apresentado no 15\textsuperscript{o} Seminário de Ciências Exatas.}}
+
+% \cvitem{\protect\ptitle}{\ifthenelse{\boolean{en}}{Honorary mention}{Menção honrosa}}
+% \cvitem{\protect\issuer}{\ifthenelse{\boolean{en}}{Brazilian Ministry of Justice}{Ministério da Justiça}}
+% \cvitem{Date}{\may 2013}
+% \cvitem{}{\ifthenelse{\boolean{en}}
+% 	        {Open Data Applications Contest. Lead developer of a Ruby on Rails application called Proconfie. Refer to the Section \hyperref[sec:web_app]{Web Applications} for more details about \hyperref[proconfie]{Proconfie}.}
+% 	        {1\textsuperscript{o} Concurso de Aplicativos do Ministério da Justiça. Desenvolvedor do aplicativo Proconfie. Veja a seção \hyperref[sec:web_app]{Aplicativos Web} para mais detalhes sobre o \hyperref[proconfie]{Proconfie}.}}
+
+% \cvitem{\protect\ptitle}{\ifthenelse{\boolean{en}}{Silver Medal}{Medalha de Prata}}
+% \cvitem{\protect\issuer}{\puc}
+% \cvitem{Date}{\july 2008}
+% \cvitem{}{\ifthenelse{\boolean{en}}
+% 		        {Second best overall score during the bachelor.}
+% 		        {Segunda melhor nota total durante todo a graduação.}}
+
+% \cvitem{\protect\ptitle}{\ifthenelse{\boolean{en}}{Honorary mention}{Menção honrosa}}
+% \cvitem{\protect\issuer}{\puc}
+% \cvitem{Date}{\may 2007}
+% \cvitem{}{\ifthenelse{\boolean{en}}
+% 		        {15\textsuperscript{th} Sciences Seminar with the research "Game Theory in Decision Making in Wireless Sensor Networks"}
+% 		        {15\textsuperscript{o} Seminário de Ciências Exatas com a pesquisas "Teoria dos Jogos na Tomada de Decisão em Redes de Sensores Sem Fio"}}
