@@ -1,0 +1,187 @@
+\documentclass[paper=A4, oneside, final, DIV=30, footheight=1pt]{scrartcl} % DIV parameter deals with the division factor for box construction http://tex.stackexchange.com/a/4383
+% \usepackage[top=1cm, bottom=1.2cm, left=1cm, right=1cm % http://tex.stackexchange.com/a/248127
+%     showframe <- only to show the page layout
+% ]{geometry}
+
+\usepackage[portuguese, english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{soul}
+\usepackage{scrpage2}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{tabularx,colortbl}
+\usepackage{ifthen}
+\usepackage{setspace}
+\usepackage[bookmarks=false]{hyperref}
+
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+\hypersetup{
+	unicode=false,          % non-Latin characters in Acrobat's bookmarks
+	pdftoolbar=false,       % show Acrobat's toolbar?
+	pdfmenubar=false,       % show Acrobat's menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdftitle={Curriculum Vitae},    					% title
+	pdfauthor={Eduardo Mucelli Rezende Oliveira},     % author
+	pdfsubject={Curriculum Vitae},   % subject of the document
+	pdfcreator={LaTeX},     % creator of the document
+	pdfproducer={Rubber},   % producer of the document
+	pdfnewwindow=true,      % links in new window
+	colorlinks=true,        % false: boxed links; true: colored links
+	linkcolor=blue,         % color of internal links
+	citecolor=green,        % color of links to bibliography
+	filecolor=magenta,      % color of file links
+	urlcolor=blue           % color of external links
+}
+
+\urlstyle{same}                                                              % font da URL fica igual a do resto do curriculo
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
+\pagestyle{scrheadings}
+\renewcommand{\headfont}{\normalfont\rmfamily\scshape}
+\newcommand{\gray}{\rowcolor[gray]{.90}}                                     % definição de um novo comando, 'gray' que seta a linha com 90% de cinza
+\newcommand{\graycell}{\cellcolor[gray]{0.90}}
+
+% ==================
+% Boolean flags
+
+\newboolean{en}
+\setboolean{en}{true}           % true gera curriculo em ingles
+\newboolean{pt}
+\setboolean{pt}{false}          % true gera curriculo em portugues
+
+\newboolean{academy}            % this curriculum focus a company, or academy?
+\setboolean{academy}{true}
+
+\newboolean{everything}
+\setboolean{everything}{false}  % false gera curriculo so com as coisas mais recentes
+
+% ==================
+
+\newcommand{\course}{\ifthenelse{\boolean{en}}      {Course}{Curso}}
+\newcommand{\type}{\ifthenelse{\boolean{en}}        {Type}{Tipo}}
+\newcommand{\period}{\ifthenelse{\boolean{en}}      {Period}{Período}}
+\newcommand{\institution}{\ifthenelse{\boolean{en}} {Institution}{Instituição}}
+\newcommand{\avgscore}{\ifthenelse{\boolean{en}}    {Avg.Score}{Nota Média}}
+\newcommand{\score}{\ifthenelse{\boolean{en}}       {Score}{Nota}}
+\newcommand{\area}{\ifthenelse{\boolean{en}}        {Area}{Área}}
+\newcommand{\project}{\ifthenelse{\boolean{en}}     {Project}{Projeto}}
+\newcommand{\pdescription}{\ifthenelse{\boolean{en}}{Description}{Descrição}}
+
+\newcommand{\ufmg}{\ifthenelse{\boolean{en}}        {Federal University of Minas Gerais}{Universidade Federal de Minas Gerais}}
+\newcommand{\puc}{\ifthenelse{\boolean{en}}         {Pontifical Catholic University of Minas Gerais}{Pontifícia Universidade Católica de Minas Gerais}}
+\newcommand{\ecole}{\ifthenelse{\boolean{en}}       {École Polytechnique}{École Polytechnique}}
+
+\newcommand{\ufmglinked}{\ifthenelse{\boolean{en}}  {\href{http://www.ufmg.br}{Federal University of Minas Gerais}}
+																			  {Universidade Federal de Minas Gerais}}
+\newcommand{\puclinked}{\ifthenelse{\boolean{en}}   {\href{http://www.pucminas.br}{Pontifical Catholic University of Minas Gerais}}
+																				  {Pontifícia Universidade Católica de Minas Gerais}}
+\newcommand{\ecolelinked}{\ifthenelse{\boolean{en}} {\href{http://www.polytechnique.edu}{École Polytechnique}}
+													{\href{http://www.polytechnique.edu}{École Polytechnique}}}
+
+\newcommand{\france}{\ifthenelse{\boolean{en}}      {France}{França}}
+\newcommand{\brazil}{\ifthenelse{\boolean{en}}      {Brazil}{Brasil}}
+
+\newcommand{\january}{\ifthenelse{\boolean{en}}     {January }{Janeiro }}
+\newcommand{\february}{\ifthenelse{\boolean{en}}    {February }{Fevereiro }}
+\newcommand{\march}{\ifthenelse{\boolean{en}}       {March }{Março }}
+\newcommand{\april}{\ifthenelse{\boolean{en}}       {April }{Abril }}
+\newcommand{\may}{\ifthenelse{\boolean{en}}         {May }{Maio }}
+\newcommand{\june}{\ifthenelse{\boolean{en}}        {June }{Junho }}
+\newcommand{\july}{\ifthenelse{\boolean{en}}        {July }{Julho }}
+\newcommand{\august}{\ifthenelse{\boolean{en}}      {August }{Agosto }}
+\newcommand{\september}{\ifthenelse{\boolean{en}}   {September }{Setembro }}
+\newcommand{\october}{\ifthenelse{\boolean{en}}     {October }{Outubro }}
+\newcommand{\november}{\ifthenelse{\boolean{en}}    {November }{Novembro }}
+\newcommand{\december}{\ifthenelse{\boolean{en}}    {December }{Dezembro }}
+\newcommand{\cc}{\ifthenelse{\boolean{en}}          {Computer Science }{Ciência da Computação }}
+\newcommand{\bachelor}{\ifthenelse{\boolean{en}}    {Bachelor's degree}{Bacharelado}}
+\newcommand{\master}{\ifthenelse{\boolean{en}}      {Master's degree}{Mestrado}}
+\newcommand{\phd}{\ifthenelse{\boolean{en}}			{Ph.D.}{Doutorado}}
+\newcommand{\wsn}{\ifthenelse{\boolean{en}}         {Wireless Sensor Networks}{Redes de Sensores sem Fio}}
+\newcommand{\complex}{\ifthenelse{\boolean{en}}     {Complex Networks}{Redes Complexas}}
+\newcommand{\data}{\ifthenelse{\boolean{en}}     	{Large-scale Data Analysis}{Análisa de Dados em Larga Escala}}
+\newcommand{\research}{\ifthenelse{\boolean{en}}    {Research}{Pesquisa}}
+\newcommand{\pand}{\ifthenelse{\boolean{en}}        {and }{e }}
+
+\newcommand{\awards}{\ifthenelse{\boolean{en}}      {Awards}{Prêmios}}
+
+\newcommand{\jobtitle}{\ifthenelse{\boolean{en}}    {Job Title}{Cargo}}
+\newcommand{\company}{\ifthenelse{\boolean{en}}     {Company}{Empresa}}
+\newcommand{\se}{\ifthenelse{\boolean{en}}     		{Software Engineer}{Engenheiro de Software}}
+\newcommand{\mg}{\ifthenelse {\boolean{en}}         {\hfill Minas Gerais, Brazil} {\hfill Minas Gerais, Brasil}}
+\newcommand{\paris}{\ifthenelse {\boolean{en}}      {Paris, France} {Paris, França}}
+\newcommand{\venice}{\ifthenelse {\boolean{en}}     {Venice, Italy} {Veneza, Itália}}
+
+\newcommand{\english}{\ifthenelse{\boolean{en}}     {English}{Inglês}}
+\newcommand{\portuguese}{\ifthenelse{\boolean{en}}  {Portuguese}{Português}}
+\newcommand{\italian}{\ifthenelse{\boolean{en}}     {Italian}{Italiano}}
+\newcommand{\french}{\ifthenelse{\boolean{en}}      {French}{Francês}}
+
+\newcommand{\languages}{\ifthenelse{\boolean{en}}   {Language}{Linguagen}}
+\newcommand{\planguage}{\ifthenelse{\boolean{en}}   {Language}{Linguagem}}
+\newcommand{\vcs}{\ifthenelse{\boolean{en}}         {VCS}{SCV}}
+\newcommand{\db}{\ifthenelse{\boolean{en}}          {DB}{BD}}
+\newcommand{\methodologies}{\ifthenelse{\boolean{en}}{Methodo\-logies}{Metodo\-logias}}
+\newcommand{\os}{\ifthenelse{\boolean{en}}          {OS}{SO}}
+\newcommand{\other}{\ifthenelse{\boolean{en}}       {Others}{Outras}}
+\newcommand{\crawling}{\ifthenelse{\boolean{en}}    {Web crawling }{Recuperação de conteúdo da Web }}
+\newcommand{\inter}{\ifthenelse{\boolean{en}}       {Internationalization }{Internationalização }}
+\newcommand{\pattern}{\ifthenelse{\boolean{en}}     {Design Patterns}{Padrões de Projeto}}
+
+\newcommand{\ptitle}{\ifthenelse{\boolean{en}}      {Title}{Título}}
+\newcommand{\issuer}{\ifthenelse{\boolean{en}}      {Issuer}{Emissor}}
+
+%\newcommand{\launchpad}{\ifthenelse{\boolean{en}}   {https://launchpad.net/{\raise.17ex\hbox{$\scriptstyle\sim$}}eduardo-mucelli}{https://launchpad.net/{\raise.17ex\hbox{$\scriptstyle\sim$}}eduardo-mucelli}}
+
+% Add the symbols for email and phone contact data
+\newcommand{\carta}{\small\Letter}
+\newcommand{\telefone}{\Large\Telefon}
+
+\ifthenelse {\boolean{en}} {
+  \cofoot{\so{Paris - France {\telefone} +33 787361492} \\ \so{{\carta} edumucelli@gmail.com}}
+		% \so{Minas Gerais - Brazil {\telefone} +55 31 33532007} \\
+} {
+  \cofoot{\so{Paris - França {\telefone} +33 787361492} \\ \so{{\carta} edumucelli@gmail.com}}
+		% \so{Minas Gerais - Brasil {\telefone} +55 31 33532007} \\
+}
+
+\begin{document}
+\begin{center}
+
+%\begin{minipage}[c]{.9\linewidth} % set percentage of line width as desired
+\textsc{\LARGE{\so{Eduardo}} \normalsize{\so{Mucelli Rezende}} \LARGE{\so{Oliveira}}}
+%\end{minipage}\hfill
+%\begin{minipage}[c]{.1\linewidth} % set percentage of line width as desired
+	%\includegraphics[scale=0.25]{photo.png} %set scale as desired, picture named profile.png
+%\end{minipage}
+
+%\center{\textsc{\small{\so{25 y/o, brazilian}}}}
+
+\ifthenelse {\boolean{en}} {\section{Summary}} {\section{Sumário}}
+\begin{tabularx}{0.96\linewidth}{p{0.96\linewidth}}
+	% Acadêmico
+\ifthenelse {\boolean{en}} {
+    	Ph.D. in Computer Science and Open Source enthusiast working with networks, large-scale data and in how the routinary characteristics of human mobility affect the network traffic demands. Besides, I am passionate about coding, e.g., to design and write APIs, web crawlers, and full-stack web applications. \\
+	} {
+  		& Doutor em Ciência da Computação e entusiasta do Software Livre trabalhando com redes, dados em larga escala e em como a rotina da mobilidade humana afeta as demandas de tráfego no rede. Além disto, eu adoro programar.
+}
+\end{tabularx}
+
+\input{education}
+\ifthenelse{\boolean{academy}} {
+	% priorizatize academic information
+	\input{academic}
+	\input{professional}
+}{
+	% priorizatize professional information
+	\input{professional}
+	\input{academic}
+}
+\input{awards}
+% Not adding it for now, if requested for an interview, add this part back and print the curriculum
+% \input{references}
+\end{center}
+\end{document}
