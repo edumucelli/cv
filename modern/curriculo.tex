@@ -8,7 +8,7 @@
 % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvstyle{banking}
 % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
-\moderncvcolor{burgundy}
+\moderncvcolor{blue}
 % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 \renewcommand{\familydefault}{\rmdefault}
 % uncomment to suppress automatic page numbering for CVs longer than one page
@@ -20,13 +20,14 @@
 % \setlength{\makecvheadnamewidth}{10cm}
 % Reduce name font size
 % http://tex.stackexchange.com/questions/80428/name-in-a-single-line-in-moderncv
-\renewcommand*{\namefont}{\fontsize{23}{29}\mdseries\upshape}
+\renewcommand*{\namefont}{\fontsize{22}{29}\mdseries\upshape}
 
 \usepackage{ifthen}
 \usepackage{csquotes}
 \MakeOuterQuote{"}
 
 \definecolor{burgundy}{rgb}{0.596078,0,0} % taken from moderncv class
+\definecolor{theblue}{rgb}{0.22,0.45,0.70} % taken from moderncv class
 \usepackage{hyperref}
 \hypersetup{
   bookmarks=false,
@@ -42,10 +43,10 @@
   pdfproducer={Rubber},   % producer of the document
   pdfnewwindow=true,      % links in new window
   colorlinks=true,        % false: boxed links; true: colored links
-  linkcolor=burgundy,         % color of internal links
+  linkcolor=theblue,         % color of internal links
   citecolor=green,        % color of links to bibliography
   filecolor=magenta,      % color of file links
-  urlcolor=burgundy          % color of external links
+  urlcolor=theblue          % color of external links
 }
 
 \urlstyle{same}
@@ -163,11 +164,11 @@
 
 \begin{document}
 
-\begin{minipage}[t]{.87\linewidth}
+\begin{minipage}[t]{.85\linewidth}
   \makecvtitle
 \end{minipage}
-\begin{minipage}[c]{.13\linewidth} % set percentage of line width as desired
-  \includegraphics[width=64pt]{oui.png} %set scale as desired, picture named profile.png
+\begin{minipage}[c]{.15\linewidth} % set percentage of line width as desired
+  \includegraphics[width=70pt]{photo_1_a.JPG} %set scale as desired, picture named profile.png
 \end{minipage}
 \input{education}
 \input{professional}
@@ -177,8 +178,9 @@
 \input{skills}
 \input{awards}
 \input{publications}
-\clearpage
-\input{letter}
+\input{hobby}
+% \clearpage
+% \input{letter}
 
 % \section{Academic Experiences}
 % \subsection{Vocational}
