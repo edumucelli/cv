@@ -160,6 +160,9 @@
 \newcommand{\ptitle}{\ifthenelse{\boolean{en}}      {Title}{Título}}
 \newcommand{\issuer}{\ifthenelse{\boolean{en}}      {Issuer}{Emissor}}
 
+\newcommand{\linktoemail}[1]{\href{mailto:#1}{\scriptsize\faEnvelopeO}}
+\newcommand{\linktopage}[1]{\href{#1}{\scriptsize\faLink}}
+
 % ==================
 
 \begin{document}
@@ -179,6 +182,7 @@
 \input{open}
 \input{publications}
 \input{awards}
+\input{references}
 \input{hobby}
 % \clearpage
 % \input{letter}
