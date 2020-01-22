@@ -1,0 +1,197 @@
+% possible options include font size ('10pt', '11pt' and '12pt'),
+%                          paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and
+%                          font family ('sans' and 'roman')
+\documentclass[11.5pt,a4paper,sans]{moderncv}
+\usepackage[utf8]{inputenc}
+% adjust the page margins
+\usepackage[scale=0.94]{geometry}
+\usepackage{fontawesome}
+% style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvstyle{banking}
+% color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+\moderncvcolor{blue}
+% to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\renewcommand{\familydefault}{\rmdefault}
+% uncomment to suppress automatic page numbering for CVs longer than one page
+\nopagenumbers{}
+% if you want to change the width of the column with the dates
+% \setlength{\hintscolumnwidth}{3cm}
+% for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks.
+% be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+% \setlength{\makecvheadnamewidth}{10cm}
+% Reduce name font size
+% http://tex.stackexchange.com/questions/80428/name-in-a-single-line-in-moderncv
+\renewcommand*{\namefont}{\fontsize{22}{29}\mdseries\upshape}
+
+\usepackage{ifthen}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+\definecolor{burgundy}{rgb}{0.596078,0,0} % taken from moderncv class
+\definecolor{theblue}{rgb}{0.22,0.45,0.70} % taken from moderncv class
+
+% https://tex.stackexchange.com/a/79406
+\AfterPreamble{
+	\hypersetup{
+	  bookmarks=false,
+	  unicode=false,          % non-Latin characters in Acrobat's bookmarks
+	  pdftoolbar=false,       % show Acrobat's toolbar?
+	  pdfmenubar=false,       % show Acrobat's menu?
+	  pdffitwindow=false,     % window fit to page when opened
+	  pdfstartview={FitH},    % fits the width of the page to the window
+	  pdftitle={Curriculum Vitae},              % title
+	  pdfauthor={Eduardo Mucelli Rezende Oliveira},     % author
+	  pdfsubject={Curriculum Vitae},   % subject of the document
+	  pdfcreator={LaTeX},     % creator of the document
+	  pdfproducer={Rubber and XeLaTex}, % producer of the document
+	  pdfnewwindow=true,      % links in new window
+	  colorlinks=true,        % false: boxed links; true: colored links
+	  linkcolor=theblue,         % color of internal links
+	  citecolor=green,        % color of links to bibliography
+	  filecolor=magenta,      % color of file links
+	  urlcolor=theblue          % color of external links
+  }
+}
+
+\graphicspath{{./photos/}}
+
+\urlstyle{same}
+% personal data
+\name{Eduardo}{Mucelli}
+\title{{\LARGE Software Engineer}}
+\address{Paris}{France}
+\phone[mobile]{+33~787~361~492}
+\email{edumucelli@gmail.com}
+\homepage{www.eduar.do}
+\social[linkedin]{edumucelli}
+\social[github]{edumucelli}
+\extrainfo{\small{\faCode}~\href{https://code.launchpad.net/~eduardo-mucelli}{eduardo-mucelli}}
+% \photo[64pt][0.4pt]{oui}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+% \makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+% ==================
+% Boolean flags
+
+\newboolean{long}               % long version, more than two pages
+\setboolean{long}{false}
+
+\newboolean{academy}            % this curriculum focus a company, or academy?
+\setboolean{academy}{true}
+
+\newboolean{everything}
+\setboolean{everything}{false}  % false gera curriculo so com as coisas mais recentes
+
+% ==================
+
+\newcommand{\course}{Course}
+\newcommand{\type}{Type}
+\newcommand{\period}{Period}
+\newcommand{\institution}{Institution}
+\newcommand{\avgscore}{Avg.Score}
+\newcommand{\score}{Score}
+\newcommand{\area}{Area}
+\newcommand{\project}{Project}
+\newcommand{\pdescription}{Description}
+
+\newcommand{\ufmg}{Federal University of Minas Gerais}
+\newcommand{\puc}{Pontifical Catholic University of Minas Gerais}
+\newcommand{\ecole}{École Polytechnique}
+
+\newcommand{\ufmglinked}{\href{http://www.ufmg.br}{Federal University of Minas Gerais}}
+\newcommand{\puclinked}{\href{http://www.pucminas.br}{Pontifical Catholic University of Minas Gerais}}
+
+\inputencoding{latin1}
+% Latin1 area
+\newcommand{\ecolelinked}{\href{http://www.polytechnique.edu}{École Polytechnique}}
+% Then back to UTF8
+\inputencoding{utf8}
+
+\newcommand{\france}{France}
+\newcommand{\brazil}{Brazil}
+\newcommand{\italy}{Italy}
+
+\newcommand{\january}{January }
+\newcommand{\february}{February }
+\newcommand{\march}{March }
+\newcommand{\april}{April }
+\newcommand{\may}{May }
+\newcommand{\june}{June }
+\newcommand{\july}{July }
+\newcommand{\august}{August }
+\newcommand{\september}{September }
+\newcommand{\october}{October }
+\newcommand{\november}{November }
+\newcommand{\december}{December }
+\newcommand{\cc}{Computer Science}
+\newcommand{\bachelor}{Bachelor's degree}
+\newcommand{\master}{Master's degree}
+\newcommand{\phd}{Ph.D}
+\newcommand{\wsn}{Wireless Sensor Networks}
+\newcommand{\complex}{Complex Networks}
+\newcommand{\data}{Large-scale Data Analysis}
+\newcommand{\research}{Research}
+\newcommand{\pand}{and }
+
+\newcommand{\awards}{Awards}
+
+\newcommand{\jobtitle}{Job Title}
+\newcommand{\company}{Company}
+\newcommand{\se}{Software Engineer}
+\newcommand{\mg}{Minas Gerais, Brazil}
+\newcommand{\paris}{Paris, France}
+\newcommand{\venice}{Venice, Italy}
+
+\newcommand{\english}{English}
+\newcommand{\portuguese}{Portuguese}
+\newcommand{\italian}{Italian}
+\newcommand{\french}{French}
+
+\newcommand{\languages}{Language}
+\newcommand{\vcs}{VCS}
+\newcommand{\db}{DB}
+\newcommand{\methodologies}{Methodo\-logies}
+\newcommand{\os}{OS}
+\newcommand{\other}{Others}
+\newcommand{\crawling}{Web crawlers}
+\newcommand{\inter}{Internationalization }
+\newcommand{\pattern}{Design Patterns}
+
+\newcommand{\ptitle}{Title}
+\newcommand{\issuer}{Issuer}
+
+\newcommand{\linktoemail}[1]{\href{mailto:#1}{\scriptsize\faEnvelopeO}}
+\newcommand{\linktopage}[1]{\href{#1}{\scriptsize\faLink}}
+
+% ==================
+
+\begin{document}
+
+\begin{minipage}[t]{.84\linewidth}
+  \makecvtitle
+  \vspace{-1cm}
+\end{minipage}
+\begin{minipage}[c]{.16\linewidth} 										% set percentage of line width as desired
+  \fcolorbox{theblue}{white}{\includegraphics[width=70pt]{photo.jpg}} 	% set scale as desired
+\end{minipage}
+\input{education}
+\input{professional}
+\input{web}
+\input{skills}
+\input{publications}
+\input{languages}
+\input{open}
+\input{awards}
+% \input{references}
+% \input{hobby}
+% \clearpage
+% \input{letter}
+
+\end{document}
