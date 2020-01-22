@@ -2,6 +2,7 @@
 %                          paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and
 %                          font family ('sans' and 'roman')
 \documentclass[11.5pt,a4paper,sans]{moderncv}
+\usepackage[utf8]{inputenc}
 % adjust the page margins
 \usepackage[scale=0.94]{geometry}
 \usepackage{fontawesome}
@@ -28,25 +29,28 @@
 
 \definecolor{burgundy}{rgb}{0.596078,0,0} % taken from moderncv class
 \definecolor{theblue}{rgb}{0.22,0.45,0.70} % taken from moderncv class
-\usepackage{hyperref}
-\hypersetup{
-  bookmarks=false,
-  unicode=false,          % non-Latin characters in Acrobat's bookmarks
-  pdftoolbar=false,       % show Acrobat's toolbar?
-  pdfmenubar=false,       % show Acrobat's menu?
-  pdffitwindow=false,     % window fit to page when opened
-  pdfstartview={FitH},    % fits the width of the page to the window
-  pdftitle={Curriculum Vitae},              % title
-  pdfauthor={Eduardo Mucelli Rezende Oliveira},     % author
-  pdfsubject={Curriculum Vitae},   % subject of the document
-  pdfcreator={LaTeX},     % creator of the document
-  pdfproducer={Rubber and XeLaTex}, % producer of the document
-  pdfnewwindow=true,      % links in new window
-  colorlinks=true,        % false: boxed links; true: colored links
-  linkcolor=theblue,         % color of internal links
-  citecolor=green,        % color of links to bibliography
-  filecolor=magenta,      % color of file links
-  urlcolor=theblue          % color of external links
+
+% https://tex.stackexchange.com/a/79406
+\AfterPreamble{
+	\hypersetup{
+	  bookmarks=false,
+	  unicode=false,          % non-Latin characters in Acrobat's bookmarks
+	  pdftoolbar=false,       % show Acrobat's toolbar?
+	  pdfmenubar=false,       % show Acrobat's menu?
+	  pdffitwindow=false,     % window fit to page when opened
+	  pdfstartview={FitH},    % fits the width of the page to the window
+	  pdftitle={Curriculum Vitae},              % title
+	  pdfauthor={Eduardo Mucelli Rezende Oliveira},     % author
+	  pdfsubject={Curriculum Vitae},   % subject of the document
+	  pdfcreator={LaTeX},     % creator of the document
+	  pdfproducer={Rubber and XeLaTex}, % producer of the document
+	  pdfnewwindow=true,      % links in new window
+	  colorlinks=true,        % false: boxed links; true: colored links
+	  linkcolor=theblue,         % color of internal links
+	  citecolor=green,        % color of links to bibliography
+	  filecolor=magenta,      % color of file links
+	  urlcolor=theblue          % color of external links
+  }
 }
 
 \graphicspath{{./photos/}}
@@ -76,11 +80,6 @@
 % ==================
 % Boolean flags
 
-\newboolean{en}
-\setboolean{en}{true}           % true gera curriculo em ingles
-\newboolean{pt}
-\setboolean{pt}{false}          % true gera curriculo em portugues
-
 \newboolean{long}               % long version, more than two pages
 \setboolean{long}{false}
 
@@ -92,80 +91,81 @@
 
 % ==================
 
-\newcommand{\course}{\ifthenelse{\boolean{en}}      {Course}{Curso}}
-\newcommand{\type}{\ifthenelse{\boolean{en}}        {Type}{Tipo}}
-\newcommand{\period}{\ifthenelse{\boolean{en}}      {Period}{Período}}
-\newcommand{\institution}{\ifthenelse{\boolean{en}} {Institution}{Instituição}}
-\newcommand{\avgscore}{\ifthenelse{\boolean{en}}    {Avg.Score}{Nota Média}}
-\newcommand{\score}{\ifthenelse{\boolean{en}}       {Score}{Nota}}
-\newcommand{\area}{\ifthenelse{\boolean{en}}        {Area}{Área}}
-\newcommand{\project}{\ifthenelse{\boolean{en}}     {Project}{Projeto}}
-\newcommand{\pdescription}{\ifthenelse{\boolean{en}}{Description}{Descrição}}
+\newcommand{\course}{Course}
+\newcommand{\type}{Type}
+\newcommand{\period}{Period}
+\newcommand{\institution}{Institution}
+\newcommand{\avgscore}{Avg.Score}
+\newcommand{\score}{Score}
+\newcommand{\area}{Area}
+\newcommand{\project}{Project}
+\newcommand{\pdescription}{Description}
 
-\newcommand{\ufmg}{\ifthenelse{\boolean{en}}        {Federal University of Minas Gerais}{Universidade Federal de Minas Gerais}}
-\newcommand{\puc}{\ifthenelse{\boolean{en}}         {Pontifical Catholic University of Minas Gerais}{Pontifícia Universidade Católica de Minas Gerais}}
-\newcommand{\ecole}{\ifthenelse{\boolean{en}}       {École Polytechnique}{École Polytechnique}}
+\newcommand{\ufmg}{Federal University of Minas Gerais}
+\newcommand{\puc}{Pontifical Catholic University of Minas Gerais}
+\newcommand{\ecole}{École Polytechnique}
 
-\newcommand{\ufmglinked}{\ifthenelse{\boolean{en}}  {\href{http://www.ufmg.br}{Federal University of Minas Gerais}}
-                                                                              {Universidade Federal de Minas Gerais}}
-\newcommand{\puclinked}{\ifthenelse{\boolean{en}}   {\href{http://www.pucminas.br}{Pontifical Catholic University of Minas Gerais}}
-                                                                                  {Pontifícia Universidade Católica de Minas Gerais}}
-\newcommand{\ecolelinked}{\ifthenelse{\boolean{en}} {\href{http://www.polytechnique.edu}{École Polytechnique}}
-                                                    {\href{http://www.polytechnique.edu}{École Polytechnique}}}
+\newcommand{\ufmglinked}{\href{http://www.ufmg.br}{Federal University of Minas Gerais}}
+\newcommand{\puclinked}{\href{http://www.pucminas.br}{Pontifical Catholic University of Minas Gerais}}
 
-\newcommand{\france}{\ifthenelse{\boolean{en}}      {France}{França}}
-\newcommand{\brazil}{\ifthenelse{\boolean{en}}      {Brazil}{Brasil}}
-\newcommand{\italy}{\ifthenelse{\boolean{en}}       {Italy}{Itália}}
+\inputencoding{latin1}
+% Latin1 area
+\newcommand{\ecolelinked}{\href{http://www.polytechnique.edu}{École Polytechnique}}
+% Then back to UTF8
+\inputencoding{utf8}
 
-\newcommand{\january}{\ifthenelse{\boolean{en}}     {January }{Janeiro }}
-\newcommand{\february}{\ifthenelse{\boolean{en}}    {February }{Fevereiro }}
-\newcommand{\march}{\ifthenelse{\boolean{en}}       {March }{Março }}
-\newcommand{\april}{\ifthenelse{\boolean{en}}       {April }{Abril }}
-\newcommand{\may}{\ifthenelse{\boolean{en}}         {May }{Maio }}
-\newcommand{\june}{\ifthenelse{\boolean{en}}        {June }{Junho }}
-\newcommand{\july}{\ifthenelse{\boolean{en}}        {July }{Julho }}
-\newcommand{\august}{\ifthenelse{\boolean{en}}      {August }{Agosto }}
-\newcommand{\september}{\ifthenelse{\boolean{en}}   {September }{Setembro }}
-\newcommand{\october}{\ifthenelse{\boolean{en}}     {October }{Outubro }}
-\newcommand{\november}{\ifthenelse{\boolean{en}}    {November }{Novembro }}
-\newcommand{\december}{\ifthenelse{\boolean{en}}    {December }{Dezembro }}
-\newcommand{\cc}{\ifthenelse{\boolean{en}}          {Computer Science}{Ciência da Computação}}
-\newcommand{\bachelor}{\ifthenelse{\boolean{en}}    {Bachelor's degree}{Bacharelado}}
-\newcommand{\master}{\ifthenelse{\boolean{en}}      {Master's degree}{Mestrado}}
-\newcommand{\phd}{\ifthenelse{\boolean{en}}         {Ph.D}{Doutorado}}
-\newcommand{\wsn}{\ifthenelse{\boolean{en}}         {Wireless Sensor Networks}{Redes de Sensores sem Fio}}
-\newcommand{\complex}{\ifthenelse{\boolean{en}}     {Complex Networks}{Redes Complexas}}
-\newcommand{\data}{\ifthenelse{\boolean{en}}        {Large-scale Data Analysis}{Análisa de Dados em Larga Escala}}
-\newcommand{\research}{\ifthenelse{\boolean{en}}    {Research}{Pesquisa}}
-\newcommand{\pand}{\ifthenelse{\boolean{en}}        {and }{e }}
+\newcommand{\france}{France}
+\newcommand{\brazil}{Brazil}
+\newcommand{\italy}{Italy}
 
-\newcommand{\awards}{\ifthenelse{\boolean{en}}      {Awards}{Prêmios}}
+\newcommand{\january}{January }
+\newcommand{\february}{February }
+\newcommand{\march}{March }
+\newcommand{\april}{April }
+\newcommand{\may}{May }
+\newcommand{\june}{June }
+\newcommand{\july}{July }
+\newcommand{\august}{August }
+\newcommand{\september}{September }
+\newcommand{\october}{October }
+\newcommand{\november}{November }
+\newcommand{\december}{December }
+\newcommand{\cc}{Computer Science}
+\newcommand{\bachelor}{Bachelor's degree}
+\newcommand{\master}{Master's degree}
+\newcommand{\phd}{Ph.D}
+\newcommand{\wsn}{Wireless Sensor Networks}
+\newcommand{\complex}{Complex Networks}
+\newcommand{\data}{Large-scale Data Analysis}
+\newcommand{\research}{Research}
+\newcommand{\pand}{and }
 
-\newcommand{\jobtitle}{\ifthenelse{\boolean{en}}    {Job Title}{Cargo}}
-\newcommand{\company}{\ifthenelse{\boolean{en}}     {Company}{Empresa}}
-\newcommand{\se}{\ifthenelse{\boolean{en}}          {Software Engineer}{Engenheiro de Software}}
-\newcommand{\mg}{\ifthenelse {\boolean{en}}         {Minas Gerais, Brazil}{Minas Gerais, Brasil}}
-\newcommand{\paris}{\ifthenelse {\boolean{en}}      {Paris, France}{Paris, França}}
-\newcommand{\venice}{\ifthenelse {\boolean{en}}     {Venice, Italy}{Veneza, Itália}}
+\newcommand{\awards}{Awards}
 
-\newcommand{\english}{\ifthenelse{\boolean{en}}     {English}{Inglês}}
-\newcommand{\portuguese}{\ifthenelse{\boolean{en}}  {Portuguese}{Português}}
-\newcommand{\italian}{\ifthenelse{\boolean{en}}     {Italian}{Italiano}}
-\newcommand{\french}{\ifthenelse{\boolean{en}}      {French}{Francês}}
+\newcommand{\jobtitle}{Job Title}
+\newcommand{\company}{Company}
+\newcommand{\se}{Software Engineer}
+\newcommand{\mg}{Minas Gerais, Brazil}
+\newcommand{\paris}{Paris, France}
+\newcommand{\venice}{Venice, Italy}
 
-\newcommand{\languages}{\ifthenelse{\boolean{en}}   {Language}{Linguagen}}
-\newcommand{\planguage}{\ifthenelse{\boolean{en}}   {Language}{Linguagem}}
-\newcommand{\vcs}{\ifthenelse{\boolean{en}}         {VCS}{SCV}}
-\newcommand{\db}{\ifthenelse{\boolean{en}}          {DB}{BD}}
-\newcommand{\methodologies}{\ifthenelse{\boolean{en}}{Methodo\-logies}{Metodo\-logias}}
-\newcommand{\os}{\ifthenelse{\boolean{en}}          {OS}{SO}}
-\newcommand{\other}{\ifthenelse{\boolean{en}}       {Others}{Outras}}
-\newcommand{\crawling}{\ifthenelse{\boolean{en}}    {Web crawlers}{Web crawlers}}
-\newcommand{\inter}{\ifthenelse{\boolean{en}}       {Internationalization }{Internationalização }}
-\newcommand{\pattern}{\ifthenelse{\boolean{en}}     {Design Patterns}{Padrões de Projeto}}
+\newcommand{\english}{English}
+\newcommand{\portuguese}{Portuguese}
+\newcommand{\italian}{Italian}
+\newcommand{\french}{French}
 
-\newcommand{\ptitle}{\ifthenelse{\boolean{en}}      {Title}{Título}}
-\newcommand{\issuer}{\ifthenelse{\boolean{en}}      {Issuer}{Emissor}}
+\newcommand{\languages}{Language}
+\newcommand{\vcs}{VCS}
+\newcommand{\db}{DB}
+\newcommand{\methodologies}{Methodo\-logies}
+\newcommand{\os}{OS}
+\newcommand{\other}{Others}
+\newcommand{\crawling}{Web crawlers}
+\newcommand{\inter}{Internationalization }
+\newcommand{\pattern}{Design Patterns}
+
+\newcommand{\ptitle}{Title}
+\newcommand{\issuer}{Issuer}
 
 \newcommand{\linktoemail}[1]{\href{mailto:#1}{\scriptsize\faEnvelopeO}}
 \newcommand{\linktopage}[1]{\href{#1}{\scriptsize\faLink}}
@@ -178,8 +178,8 @@
   \makecvtitle
   \vspace{-1cm}
 \end{minipage}
-\begin{minipage}[c]{.16\linewidth} % set percentage of line width as desired
-  \fcolorbox{theblue}{white}{\includegraphics[width=70pt]{photo_1.JPG}} %set scale as desired, picture named profile.png
+\begin{minipage}[c]{.16\linewidth} 										% set percentage of line width as desired
+  \fcolorbox{theblue}{white}{\includegraphics[width=70pt]{photo.jpg}} 	% set scale as desired
 \end{minipage}
 \input{education}
 \input{professional}
@@ -191,79 +191,7 @@
 \input{awards}
 % \input{references}
 % \input{hobby}
-% \input{letter}
 % \clearpage
 % \input{letter}
-
-% \section{Academic Experiences}
-% \subsection{Vocational}
-% \cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
-% Detailed achievements:%
-% \begin{itemize}%
-% \item Achievement 1;
-% \item Achievement 2, with sub-achievements:
-%   \begin{itemize}%
-%   \item Sub-achievement (a);
-%   \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-%     \begin{itemize}
-%     \item Sub-sub-achievement i;
-%     \item Sub-sub-achievement ii;
-%     \item Sub-sub-achievement iii;
-%     \end{itemize}
-%   \item Sub-achievement (c);
-%   \end{itemize}
-% \item Achievement 3.
-% \end{itemize}}
-% \cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
-% \subsection{Miscellaneous}
-% \cventry{year--year}{Job title}{Employer}{City}{}{Description}
-
-% \section{Languages}
-% \cvitemwithcomment{Language 1}{Skill level}{Comment}
-% \cvitemwithcomment{Language 2}{Skill level}{Comment}
-% \cvitemwithcomment{Language 3}{Skill level}{Comment}
-
-% \section{Computer skills}
-% \cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
-% \cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
-% \cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
-
-% \section{Interests}
-% \cvitem{hobby 1}{Description}
-% \cvitem{hobby 2}{Description}
-% \cvitem{hobby 3}{Description}
-
-% \section{Extra 1}
-% \cvlistitem{Item 1}
-% \cvlistitem{Item 2}
-% \cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
-
-% \section{Extra 2}
-% \cvlistdoubleitem{Item 1}{Item 4}
-% \cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
-% \cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
-
-% \section{References}
-% \begin{cvcolumns}
-%   \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
-%   \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
-%   \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
-% \end{cvcolumns}
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-% \nocite{*}
-% \bibliographystyle{plain}
-% \bibliography{publications}                        % 'publications' is the name of a BibTeX file
-
-% Publications from a BibTeX file using the multibib package
-%\section{Publications}
-%\nocitebook{book1,book2}
-%\bibliographystylebook{plain}
-%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
 
 \end{document}

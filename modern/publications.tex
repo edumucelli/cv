@@ -1,15 +1,7 @@
-\ifthenelse {\boolean{en}} {
-	\ifthenelse {\boolean{everything}} {
-		\section{\href{https://scholar.google.com/citations?user=pD4KMUsAAAAJ}{Publications~\scriptsize\faLink}}
-	}{
-		\section{Recent \href{https://scholar.google.com/citations?user=pD4KMUsAAAAJ}{publications~\scriptsize\faLink}}
-	}
-} {
-	\ifthenelse {\boolean{everything}} {
-		\section{\href{https://scholar.google.com/citations?user=pD4KMUsAAAAJ}{Publicações~\scriptsize\faLink}}
-	} {
-		\section{\href{https://scholar.google.com/citations?user=pD4KMUsAAAAJ}{Publicações~\scriptsize\faLink} recentes}
-	}
+\ifthenelse {\boolean{everything}} {
+	\section{\href{https://scholar.google.com/citations?user=pD4KMUsAAAAJ}{Publications~\scriptsize\faLink}}
+}{
+	\section{Recent \href{https://scholar.google.com/citations?user=pD4KMUsAAAAJ}{publications~\scriptsize\faLink}}
 }
 \begin{itemize}
 \item \cvitem{}{Lin, Yu-Ting and Oliveira, Mucelli Rezende Oliveira, Eduardo and Ben Jemaa, Sana and Eddine Elayoubi, Salah., \emph{"Machine Learning for Predicting QoE of Video Streaming in Mobile Networks"}, IEEE ICC Communication QoS, reliability and modeling symposium, May 2017.}
