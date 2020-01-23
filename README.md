@@ -1,4 +1,4 @@
-My CV, either you can find it below as PNG, in the repository as PDF or at http://eduar.do
+My CV, either you can find it below as [PNG](cv.png), in the repository as [PDF](cv.pdf) or at http://eduar.do
 
 ![CV](cv.png)
 
