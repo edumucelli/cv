@@ -5,7 +5,6 @@
 \usepackage[utf8]{inputenc}
 % adjust the page margins
 \usepackage[scale=0.94]{geometry}
-\usepackage{fontawesome}
 % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvstyle{banking}
 % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
@@ -23,6 +22,7 @@
 % http://tex.stackexchange.com/questions/80428/name-in-a-single-line-in-moderncv
 \renewcommand*{\namefont}{\fontsize{22}{29}\mdseries\upshape}
 
+\usepackage{lmodern}
 \usepackage{ifthen}
 \usepackage{csquotes}
 \MakeOuterQuote{"}
@@ -43,13 +43,13 @@
 	  pdfauthor={Eduardo Mucelli Rezende Oliveira},     % author
 	  pdfsubject={Curriculum Vitae},   % subject of the document
 	  pdfcreator={LaTeX},     % creator of the document
-	  pdfproducer={Rubber and XeLaTex}, % producer of the document
+	  pdfproducer={XeTex},    % producer of the document
 	  pdfnewwindow=true,      % links in new window
 	  colorlinks=true,        % false: boxed links; true: colored links
-	  linkcolor=theblue,         % color of internal links
+	  linkcolor=theblue,      % color of internal links
 	  citecolor=green,        % color of links to bibliography
 	  filecolor=magenta,      % color of file links
-	  urlcolor=theblue          % color of external links
+	  urlcolor=theblue        % color of external links
   }
 }
 
@@ -60,7 +60,7 @@
 \name{Eduardo}{Mucelli}
 \title{{\LARGE Software Engineer}}
 \address{Paris}{France}
-\phone[mobile]{+33~787~361~492}
+%\phone[mobile]{+33~787~361~492}
 \email{edumucelli@gmail.com}
 \homepage{www.eduar.do}
 \social[linkedin]{edumucelli}
@@ -145,6 +145,7 @@
 \newcommand{\jobtitle}{Job Title}
 \newcommand{\company}{Company}
 \newcommand{\se}{Software Engineer}
+\newcommand{\seii}{Software Engineer II}
 \newcommand{\mg}{Minas Gerais, Brazil}
 \newcommand{\paris}{Paris, France}
 \newcommand{\venice}{Venice, Italy}
@@ -167,7 +168,7 @@
 \newcommand{\ptitle}{Title}
 \newcommand{\issuer}{Issuer}
 
-\newcommand{\linktoemail}[1]{\href{mailto:#1}{\scriptsize\faEnvelopeO}}
+\newcommand{\linktoemail}[1]{\href{mailto:#1}{\scriptsize\faEnvelope}}
 \newcommand{\linktopage}[1]{\href{#1}{\scriptsize\faLink}}
 
 % ==================

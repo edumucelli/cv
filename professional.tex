@@ -1,12 +1,38 @@
 \section{Professional Experiences}
-\cventry{\june 2020 -- Present}{\se}{Canonical}{Remote}{}{
+\newcommand*{\cvsimple}[4][.25em]{
+\begin{tabular*}{\maincolumnwidth}{l@{\extracolsep{\fill}}r}%
+	% {\bfseries #4} & {\bfseries #5}\\%
+	{\itshape #3} & {\itshape #2}\\%
+\end{tabular*}%
+\ifx&#4&%
+\else{\\%
+	\begin{minipage}{\maincolumnwidth}%
+		\small#4%
+\end{minipage}}\fi%
+\par\addvspace{#1}}
+
+\cventry{\december 2021 -- Present}{\seii}{Canonical}{Remote}{}{
+	Improving the data pipeline Python codebase to serve technical and non-technical internal teams.
+	Working on the service behind \href{https://ubuntu.com/security/livepatch}{Livepatch} in Golang.
+}
+% Add second entry to the same company https://tex.stackexchange.com/a/294612
+\cvsimple{\june 2020 -- \november 2021}{\se}{
+	Working on the services behind \href{https://ubuntu.com/advantage}{Ubuntu Advantage} in Golang and Python.
+	Introduced a BDD suite to our main Golang services.
+	Revamping team's data pipelines: large refactoring of the Python codebase, type checking, linting, moving from Openstack to Kubernetes (Argo), Grafana, Prometheus, Pushgateway, alerting.
 }
 \cventry{\july 2016 -- \may 2020}{\se}{BlaBlaCar}{\protect\france}{}{
-Developed features, optimized performance, deployed and monitored a dozen of Java services at the Trip Search team. \href{https://medium.com/blablacar-tech/fast-machine-learning-predictions-6856b3623e5}{Wrote and integrated the first library} to handle Machine Learning predictions at scale for \href{https://github.com/edumucelli/benchmark-xgboost-java}{which I have extensively measured performance}. Significantly worked on the \href{https://blog.blablacar.com/newsroom/news-list/new-search-logo-visual-identity}{new search and matching algorithm}. Main technologies were Java, Elasticsearch, PostgreSQL, PostGIS, XGBoost, OSRM, MySQL and Redis, R and Python.}
-
-\cventry{\june 2015 -- \june 2016}{Postdoctoral Researcher}{Orange}{\protect\france}{}{Developed machine-learning assisted techniques to predict users' QoE based on network's KPIs.}
-
-\cventry{\july 2011 --- \september 2011}{\se}{Dito Internet}{\protect\brazil}{}{Developed in Ruby on Rails, as part of a team, Telecom Italia Mobile's project called TIM Beta, \textit{\href{www.timbeta.com.br}{timbeta.com.br}}.}
-
-\cventry{\november 2010 --- \may 2011}{Researcher Intern}{Telecom Italia Future Centre}{\protect\italy}{}{Developed, in Python, a project called Future of Enterprises aiming to improve the real-time interaction among employees.}
-\cventry{\february 2008 --- \february 2009}{\se}{Task Internet}{\protect\brazil}{}{Lead developer of a social network in Ruby on Rails.}
+	Developed features, optimized performance, deployed and monitored a dozen of Java services at the Trip Search team. \href{https://medium.com/blablacar-tech/fast-machine-learning-predictions-6856b3623e5}{Wrote and integrated the first library} to handle Machine Learning predictions at scale for \href{https://github.com/edumucelli/benchmark-xgboost-java}{which I have extensively measured performance}. Significantly worked on the \href{https://blog.blablacar.com/newsroom/news-list/new-search-logo-visual-identity}{new search, routing and matching algorithm}. Main technologies were Java, Elasticsearch, PostgreSQL, PostGIS, XGBoost, OSRM, MySQL and Redis, R and Python.
+}
+\cventry{\june 2015 -- \june 2016}{Postdoctoral Researcher}{Orange}{\protect\france}{}{
+	Developed machine-learning assisted techniques to predict users' QoE based on network's KPIs.
+}
+\cventry{\july 2011 --- \september 2011}{\se}{Dito Internet}{\protect\brazil}{}{
+	Developed in Ruby on Rails, as part of a team, Telecom Italia Mobile's project called TIM Beta, \textit{\href{www.timbeta.com.br}{timbeta.com.br}}.
+}
+\cventry{\november 2010 --- \may 2011}{Researcher Intern}{Telecom Italia Future Centre}{\protect\italy}{}{
+	Developed, in Python, a project called Future of Enterprises aiming to improve the real-time interaction among employees.
+}
+\cventry{\february 2008 --- \february 2009}{\se}{Task Internet}{\protect\brazil}{}{
+	Lead developer of a social network in Ruby on Rails.
+}
