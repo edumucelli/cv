@@ -4,11 +4,22 @@
 \documentclass[11.5pt,a4paper,sans]{moderncv}
 \usepackage[utf8]{inputenc}
 % adjust the page margins
-\usepackage[scale=0.96]{geometry}
+\usepackage[scale=0.88]{geometry}
 % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvstyle{banking}
 % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
 \moderncvcolor{blue}
+\renewcommand*{\homepagesymbol}{{\small\faLink}~}
+% Let the four contact items use the full text column beside the photo.
+\patchcmd{\makehead}{0.8\textwidth}{\textwidth}{}{
+    \PackageError{cv}{Could not widen the contact header}{Check the moderncv header definition.}
+}
+\newlength{\cvheaderrowgap}
+\setlength{\cvheaderrowgap}{11pt}
+\patchcmd{\makehead}{\\\addressfont\color{color2}}{\\[\cvheaderrowgap]\addressfont\color{color2}}{}{
+    \PackageError{cv}{Could not space the contact row}{Check the moderncv header definition.}
+}
+\renewcommand*{\makeheaddetailssymbol}{\hspace{.6em}{\rmfamily\textbullet}\hspace{.6em}}
 % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 \renewcommand{\familydefault}{\rmdefault}
 % uncomment to suppress automatic page numbering for CVs longer than one page
@@ -58,14 +69,13 @@
 \urlstyle{same}
 % personal data
 \name{Eduardo}{Mucelli}
-\title{{\LARGE Software Engineer}}
-\address{Paris}{France}
+\title{{\LARGE Senior Software Engineer}\\[\cvheaderrowgap]{\large PhD in Computer Science}}
+\extrainfo{{\small\faGlobeAmericas}~Paris, France}
 %\phone[mobile]{+33~787~361~492}
 \email{edumucelli@gmail.com}
 \homepage{www.eduar.do}
-\social[linkedin]{edumucelli}
+%\social[linkedin]{edumucelli}
 \social[github]{edumucelli}
-\extrainfo{\small{\faCode}~\href{https://code.launchpad.net/~eduardo-mucelli}{eduardo-mucelli}}
 % \photo[64pt][0.4pt]{oui}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 
 % bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
@@ -133,7 +143,7 @@
 \newcommand{\cc}{Computer Science}
 \newcommand{\bachelor}{Bachelor's degree}
 \newcommand{\master}{Master's degree}
-\newcommand{\phd}{Ph.D}
+\newcommand{\phd}{PhD}
 \newcommand{\wsn}{Wireless Sensor Networks}
 \newcommand{\complex}{Complex Networks}
 \newcommand{\data}{Large-scale Data Analysis}
@@ -171,6 +181,7 @@
 
 \newcommand{\linktoemail}[1]{\href{mailto:#1}{\scriptsize\faEnvelope}}
 \newcommand{\linktopage}[1]{\href{#1}{\scriptsize\faLink}}
+\newcommand{\linkwithtext}[2]{\href{#1}{#2~{\scriptsize\faLink}}}
 
 % ==================
 
@@ -179,17 +190,19 @@
 \begin{minipage}[t]{.84\linewidth}
   \makecvtitle
   \vspace{-1cm}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}[c]{.16\linewidth} 										% set percentage of line width as desired
   \fcolorbox{theblue}{white}{\includegraphics[width=70pt]{photo.jpg}} 	% set scale as desired
 \end{minipage}
+\par\vspace{1em}
+\cvitem{}{I build backend systems and AI infrastructure, drawing on research in large-scale data analysis and modeling. I'm comfortable working closely with research teams to evaluate ideas and bring them into production.}
 \input{education}
 \input{professional}
 \input{web}
+\input{open}
 \input{skills}
 \input{publications}
 \input{languages}
-\input{open}
 \input{awards}
 % \input{references}
 % \input{hobby}

@@ -1,4 +1,4 @@
-\section{Professional Experiences}
+\section{Professional experience}
 \newcommand*{\cvsimple}[4][.25em]{
 \begin{tabular*}{\maincolumnwidth}{l@{\extracolsep{\fill}}r}%
 	% {\bfseries #4} & {\bfseries #5}\\%
@@ -12,30 +12,34 @@
 \par\addvspace{#1}}
 
 \cventry{\january 2023 -- Present}{\sse}{Synthesia}{Remote}{}{
-	Working on improving the robustness of the video generation.
+	Improved the robustness, scalability, and observability of Synthesia’s AI video generation platform, leading work on rate limiting, task scheduling, diagnostics, rendering/preprocessing workers, GPU rendering experiments, and dubbing infrastructure.
+	Led scaling and cost-efficiency experiments that reduced compute usage by $\sim$56\% with minimal user impact, identifying an estimated $\sim$\$800K/year in infrastructure savings.
 }
-\cventry{\december 2021 -- \november 2022}{\seii}{Canonical}{Remote}{}{
-	Improving the data pipeline Python codebase to serve technical and non-technical internal teams.
-	Working on the service behind \href{https://ubuntu.com/security/livepatch}{Livepatch} in Golang.
-}
+%\cventry{\december 2021 -- \november 2022}{\seii}{Canonical}{Remote}{}{
+%	Improving the data pipeline Python codebase to serve technical and non-technical internal teams.
+%	Working on the service behind \href{https://ubuntu.com/security/livepatch}{Livepatch} in Golang.
+%}
 % Add second entry to the same company https://tex.stackexchange.com/a/294612
-\cvsimple{\june 2020 -- \november 2021}{\se}{
-	Working on the services behind \href{https://ubuntu.com/advantage}{Ubuntu Advantage} in Golang and Python.
-	Introduced a BDD suite to our main Golang services.
-	Revamping team's data pipelines: large refactoring of the Python codebase, type checking, linting, moving from Openstack to Kubernetes (Argo), Grafana, Prometheus, Pushgateway, alerting.
+%\cvsimple{\june 2020 -- \november 2021}{\se}{
+%	Working on the services behind \href{https://ubuntu.com/advantage}{Ubuntu Advantage} in Golang and Python.
+%	Introduced a BDD suite to our main Golang services.
+%	Revamping team's data pipelines: large refactoring of the Python codebase, type checking, linting, moving from Openstack to Kubernetes (Argo), Grafana, Prometheus, Pushgateway, alerting.
+%}
+\cventry{\june 2020 -- \november 2022}{\se{} / \seii}{Canonical}{Remote}{}{
+	Implemented kernel-module signature verification and failure reporting in \linkwithtext{https://ubuntu.com/security/livepatch}{Canonical Livepatch's Go client}, with corresponding server-side patch-state support. Developed Go services for Ubuntu Advantage contract provisioning and renewals, optimizing PostgreSQL queries and API usage. Refactored Python ETL tooling with typed interfaces, retries, and monitoring; maintained Kubernetes/Argo workflows and PostgreSQL snapshots. Introduced Gherkin/Godog acceptance tests in CI.
 }
 \cventry{\july 2016 -- \may 2020}{\se}{BlaBlaCar}{\protect\france}{}{
-	Developed features, optimized performance, deployed and monitored a dozen of Java services at the Trip Search team. \href{https://medium.com/blablacar-tech/fast-machine-learning-predictions-6856b3623e5}{Wrote and integrated the first library} to handle Machine Learning predictions at scale for \href{https://github.com/edumucelli/benchmark-xgboost-java}{which I have extensively measured performance}. Significantly worked on the \href{https://blog.blablacar.com/newsroom/news-list/new-search-logo-visual-identity}{new search, routing and matching algorithm}. Main technologies were Java, Elasticsearch, PostgreSQL, PostGIS, XGBoost, OSRM, MySQL and Redis, R and Python.
+	Developed Java services for BlaBlaCar's Trip Search team, covering \linkwithtext{https://blog.blablacar.com/newsroom/news-list/new-search-logo-visual-identity}{search, routing, and matching}. Built the meeting-point service with PostgreSQL/PostGIS spatial search, machine-learning ranking, Redis, and R-tree caching. Created a geospatial crawler and ingestion tools for over one million collected place records across 14 countries. \linkwithtext{https://github.com/edumucelli/benchmark-xgboost-java}{Benchmarked JVM inference engines} and built a \linkwithtext{https://medium.com/blablacar-tech/fast-machine-learning-predictions-6856b3623e5}{reusable XGBoost prediction library} for Java services. Improved geospatial utilities, search indexing, and routing integrations.
 }
 \cventry{\june 2015 -- \june 2016}{Postdoctoral Researcher}{Orange}{\protect\france}{}{
-	Developed machine-learning assisted techniques to predict users' QoE based on network's KPIs.
+	Developed machine learning methods to predict video streaming quality of experience from mobile network performance metrics.
 }
 \cventry{\july 2011 --- \september 2011}{\se}{Dito Internet}{\protect\brazil}{}{
-	Developed in Ruby on Rails, as part of a team, Telecom Italia Mobile's project called TIM Beta, \textit{\href{www.timbeta.com.br}{timbeta.com.br}}.
+	Developed \linkwithtext{http://www.timbeta.com.br}{TIM Beta} for Telecom Italia Mobile as part of a Ruby on Rails team.
 }
-\cventry{\november 2010 --- \may 2011}{Researcher Intern}{Telecom Italia Future Centre}{\protect\italy}{}{
-	Developed, in Python, a project called Future of Enterprises aiming to improve the real-time interaction among employees.
+\cventry{\november 2010 --- \may 2011}{Research Intern}{Telecom Italia Future Centre}{\protect\italy}{}{
+	Developed Future of Enterprises in Python to improve real-time collaboration among employees.
 }
 \cventry{\february 2008 --- \february 2009}{\se}{Task Internet}{\protect\brazil}{}{
-	Lead developer of a social network in Ruby on Rails.
+	Led development of a Ruby on Rails social network.
 }
